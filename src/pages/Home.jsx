@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Product from '../components/Product';
+import Categories from '../components/Categories';
+import * as api from '../services/api';
+
 
 class Home extends Component {
   state = {
@@ -23,11 +26,21 @@ class Home extends Component {
     this.setState({ results: productData.results });
   };
 
+  componentDidMount() {
+    api.getCategories().then((categories) => {
+      this.setState({ productList: categories });
+    });
+  }
+
   render() {
     const { productList, results } = this.state;
 
     return (
-      <div data-testid="home-initial-message">
+    <>
+      <div>
+          <Categories categories={ productList } />
+        </div>
+      <div>
         <input
           data-testid="query-input"
           type="text"
@@ -53,12 +66,17 @@ class Home extends Component {
             </div>))
           ) : <h2>Nenhum produto foi encontrado</h2>}
         <div>
+
+        <div data-testid="home-initial-message">
+          <input type="text" />
+
           {productList.length === 0 ? (
             <h2>
               Digite algum termo de pesquisa ou escolha uma categoria.
             </h2>) : undefined}
         </div>
       </div>
+      </>
     );
   }
 }
