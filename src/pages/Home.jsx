@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { getProductsFromCategoryAndQuery } from '../services/api';
-import Product from '../components/Product';
 import Categories from '../components/Categories';
 import * as api from '../services/api';
 import Header from '../components/Header';
-// Requisito 7
+import ProductCard from '../components/ProductCard';
 
 class Home extends Component {
   state = {
@@ -68,7 +67,7 @@ class Home extends Component {
           {results.length > 0
             ? (results.map(({ price, title, thumbnail }) => (
               <div data-testid="product" key={ title }>
-                <Product
+                <ProductCard
                   title={ title }
                   price={ price }
                   thumbnail={ thumbnail }
