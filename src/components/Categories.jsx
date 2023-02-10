@@ -20,7 +20,7 @@ class Categories extends React.Component {
     const { products } = this.state;
 
     return (
-      <div>
+      <div className="categories">
         {categories.map((category) => (
           <button
             data-testid="category"
