@@ -66,7 +66,7 @@ class Home extends Component {
 
           {results.length > 0
             ? (results.map(({ price, title, thumbnail }) => (
-              <div key={ title }>
+              <div data-testid="product" key={ title }>
                 <Product
                   title={ title }
                   price={ price }
