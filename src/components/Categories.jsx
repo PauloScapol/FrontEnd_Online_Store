@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Product from './Product';
+import ProductCard from './ProductCard';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
 class Categories extends React.Component {
@@ -35,7 +35,8 @@ class Categories extends React.Component {
 
         {products.map(({ id, title, price, thumbnail }) => (
           <div data-testid="product" key={ id }>
-            <Product
+            <ProductCard
+              id={ id }
               title={ title }
               price={ price }
               thumbnail={ thumbnail }
