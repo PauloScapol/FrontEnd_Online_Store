@@ -5,7 +5,7 @@ class Product extends Component {
   render() {
     const { price, title, thumbnail } = this.props;
     return (
-      <div data-testid="product">
+      <div>
         <h3>
           { title }
         </h3>
