@@ -3,7 +3,6 @@ import { getProductsFromCategoryAndQuery } from '../services/api';
 import Product from '../components/Product';
 import Categories from '../components/Categories';
 import * as api from '../services/api';
-import Header from '../components/Header';
 // Requisito 7
 
 class Home extends Component {
@@ -38,7 +37,6 @@ class Home extends Component {
 
     return (
       <>
-        <Header />
         <div>
           <Categories categories={ productList } />
         </div>
@@ -50,31 +48,33 @@ class Home extends Component {
                 Digite algum termo de pesquisa ou escolha uma categoria.
               </h2>) : undefined}
           </div>
-
-          <input
-            data-testid="query-input"
-            type="text"
-            id="query-input"
-            name="querySearch"
-            onChange={ this.handleSearchText }
-          />
-          <button
-            data-testid="query-button"
-            onClick={ this.handleSearch }
-          >
-            Pesquisar
-          </button>
+          <div className="searchInput">
+            <input
+              data-testid="query-input"
+              type="text"
+              id="query-input"
+              name="querySearch"
+              onChange={ this.handleSearchText }
+            />
+            <button
+              className="searchButton"
+              data-testid="query-button"
+              onClick={ this.handleSearch }
+            >
+              Pesquisar
+            </button>
+          </div>
 
           {results.length > 0
             ? (results.map(({ price, title, thumbnail }) => (
-              <div data-testid="product" key={ title }>
+              <div className="resultadoBusca" data-testid="product" key={ title }>
                 <Product
                   title={ title }
                   price={ price }
                   thumbnail={ thumbnail }
                 />
               </div>))
-            ) : <h2>Nenhum produto foi encontrado</h2>}
+            ) : <h2 className="notProductFound">Nenhum produto foi encontrado</h2>}
         </div>
       </>
     );
