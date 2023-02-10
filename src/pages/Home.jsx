@@ -4,6 +4,7 @@ import Product from '../components/Product';
 import Categories from '../components/Categories';
 import * as api from '../services/api';
 import Header from '../components/Header';
+// Requisito 7
 
 class Home extends Component {
   state = {
@@ -66,7 +67,7 @@ class Home extends Component {
 
           {results.length > 0
             ? (results.map(({ price, title, thumbnail }) => (
-              <div key={ title }>
+              <div data-testid="product" key={ title }>
                 <Product
                   title={ title }
                   price={ price }
