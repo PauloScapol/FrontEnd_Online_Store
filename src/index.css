@@ -15,11 +15,12 @@ code {
 
 .header {
   display:flex;
-  justify-content:flex-start;
+  justify-content:space-evenly;
   padding: 5px;
   background-color: #036A00;
   align-items:flex-start;
   color: white;
+  align-items: center;
 }
 
 .logo {
