@@ -4,6 +4,7 @@ import Product from '../components/Product';
 import Categories from '../components/Categories';
 import * as api from '../services/api';
 import Header from '../components/Header';
+// Requisito 7
 
 class Home extends Component {
   state = {
