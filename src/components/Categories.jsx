@@ -8,13 +8,14 @@ class Categories extends React.Component {
     return (
       <div>
         {categories.map((category) => (
-          <label htmlFor="categories" data-testid="category" key={ category.id }>
-            <input
-              name="category"
-              type="radio"
-            />
-            { category.name }
-          </label>
+          <button
+            data-testid="category"
+            type="button"
+            key={ category.id }
+            name={ category.name }
+          >
+            {category.name}
+          </button>
         ))}
       </div>
     );
