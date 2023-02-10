@@ -3,6 +3,7 @@ import { getProductsFromCategoryAndQuery } from '../services/api';
 import Product from '../components/Product';
 import Categories from '../components/Categories';
 import * as api from '../services/api';
+import Header from '../components/Header';
 
 class Home extends Component {
   state = {
@@ -36,6 +37,7 @@ class Home extends Component {
 
     return (
       <>
+        <Header />
         <div>
           <Categories categories={ productList } />
         </div>
