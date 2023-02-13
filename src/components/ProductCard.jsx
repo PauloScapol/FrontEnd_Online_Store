@@ -5,7 +5,7 @@ import ButtonAdd from './ButtonAdd';
 
 class ProductCard extends React.Component {
   render() {
-    const { price, title, thumbnail, id, quantity } = this.props;
+    const { price, title, thumbnail, id } = this.props;
 
     return (
       <div>
@@ -23,8 +23,7 @@ class ProductCard extends React.Component {
         </Link>
 
         <ButtonAdd
-          id={ id }
-          quantity={ quantity }
+          testid="product-add-to-cart"
           title={ title }
           price={ price }
           thumbnail={ thumbnail }

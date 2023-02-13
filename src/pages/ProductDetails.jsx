@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ButtonAdd from '../components/ButtonAdd';
 
 class ProductDetails extends React.Component {
   state = {
@@ -49,6 +50,14 @@ class ProductDetails extends React.Component {
           R$
           { price }
         </h3>
+        <div>
+          <ButtonAdd
+            testid="product-detail-add-to-cart"
+            title={ title }
+            price={ price }
+            thumbnail={ thumbnail }
+          />
+        </div>
       </div>
     );
   }

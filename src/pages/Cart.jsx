@@ -20,7 +20,6 @@ class Cart extends Component {
 
             </div>)))
           : <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>}
-        <p>uai</p>
 
       </div>
     );

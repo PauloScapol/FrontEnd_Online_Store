@@ -33,6 +33,7 @@ class Home extends Component {
 
   render() {
     const { productList, results } = this.state;
+    const quantity = 1;
     return (
       <>
         <div>
@@ -64,7 +65,7 @@ class Home extends Component {
           </div>
 
           {results.length > 0
-            ? (results.map(({ price, title, thumbnail, sold_quantity: quantity }) => (
+            ? (results.map(({ price, title, thumbnail }) => (
               <div className="resultadoBusca" data-testid="product" key={ title }>
 
                 <ProductCard

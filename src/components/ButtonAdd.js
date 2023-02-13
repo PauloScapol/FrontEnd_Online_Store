@@ -8,8 +8,8 @@ class ButtonAdd extends React.Component {
   }
 
   handleLocal() {
-    const { title, price, thumbnail, id } = this.props;
-    const product = { title, price, thumbnail, quantity: 1, id };
+    const { title, price, thumbnail } = this.props;
+    const product = { title, price, thumbnail, quantity: 1 };
     if (localStorage.getItem('products') === null) {
       localStorage.setItem('products', JSON.stringify([product]));
       return;
@@ -18,15 +18,17 @@ class ButtonAdd extends React.Component {
     const isOldList = oldList
       .some((savedProduct) => savedProduct.title === product.title);
     if (!isOldList) {
-      localStorage.setItem('product', JSON.stringify([...oldList, product]));
+      localStorage.setItem('products', JSON.stringify([...oldList, product]));
     }
   }
 
   render() {
+    const { testid } = this.props;
+    console.log(testid);
     return (
       <div>
         <button
-          data-testid="product-add-to-cart"
+          data-testid={ testid }
           onClick={ this.handleLocal }
         >
           Adicionar ao carrinho
