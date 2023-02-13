@@ -33,7 +33,6 @@ class Home extends Component {
 
   render() {
     const { productList, results } = this.state;
-
     return (
       <>
         <div>
@@ -65,13 +64,16 @@ class Home extends Component {
           </div>
 
           {results.length > 0
-            ? (results.map(({ price, title, thumbnail }) => (
+            ? (results.map(({ price, title, thumbnail, sold_quantity: quantity }) => (
               <div className="resultadoBusca" data-testid="product" key={ title }>
+
                 <ProductCard
                   title={ title }
                   price={ price }
                   thumbnail={ thumbnail }
+                  quantity={ quantity }
                 />
+
               </div>))
             ) : <h2 className="notProductFound">Nenhum produto foi encontrado</h2>}
         </div>

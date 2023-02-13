@@ -1,22 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import ButtonAdd from './ButtonAdd';
 
 class ProductCard extends React.Component {
   render() {
-    const { price, title, thumbnail, id } = this.props;
+    const { price, title, thumbnail, id, quantity } = this.props;
 
     return (
-      <Link
-        data-testid="product-detail-link"
-        to={ `/productDetails/${id}` }
-      >
-        <div>
-          <h1>{ title }</h1>
-          <img src={ thumbnail } alt={ title } />
-          <span>{ price }</span>
-        </div>
-      </Link>
+      <div>
+
+        <Link
+          data-testid="product-detail-link"
+          to={ `/productDetails/${id}` }
+        >
+          <div>
+            <h1>{ title }</h1>
+            <img src={ thumbnail } alt={ title } />
+            <span>{ price }</span>
+          </div>
+
+        </Link>
+
+        <ButtonAdd
+          id={ id }
+          quantity={ quantity }
+          title={ title }
+          price={ price }
+          thumbnail={ thumbnail }
+        />
+      </div>
     );
   }
 }

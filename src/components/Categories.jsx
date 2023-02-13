@@ -33,9 +33,10 @@ class Categories extends React.Component {
           </button>
         ))}
 
-        {products.map(({ id, title, price, thumbnail }) => (
+        {products.map(({ id, title, price, thumbnail, sold_quantity: quantity }) => (
           <div data-testid="product" key={ id }>
             <ProductCard
+              quantity={ quantity }
               id={ id }
               title={ title }
               price={ price }
