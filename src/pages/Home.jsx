@@ -36,48 +36,46 @@ class Home extends Component {
     const quantity = 1;
     return (
       <>
+        <div data-testid="home-initial-message">
+          {productList.length === 0 ? (
+            <h2>
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </h2>) : undefined}
+        </div>
+        <div className="searchInput">
+          <input
+            data-testid="query-input"
+            type="text"
+            id="query-input"
+            name="querySearch"
+            onChange={ this.handleSearchText }
+          />
+          <button
+            className="searchButton"
+            data-testid="query-button"
+            onClick={ this.handleSearch }
+          >
+            Pesquisar
+          </button>
+        </div>
+
         <div>
           <Categories categories={ productList } />
         </div>
 
-        <div>
-          <div data-testid="home-initial-message">
-            {productList.length === 0 ? (
-              <h2>
-                Digite algum termo de pesquisa ou escolha uma categoria.
-              </h2>) : undefined}
-          </div>
-          <div className="searchInput">
-            <input
-              data-testid="query-input"
-              type="text"
-              id="query-input"
-              name="querySearch"
-              onChange={ this.handleSearchText }
-            />
-            <button
-              className="searchButton"
-              data-testid="query-button"
-              onClick={ this.handleSearch }
-            >
-              Pesquisar
-            </button>
-          </div>
+        {results.length > 0
+          ? (results.map(({ price, title, thumbnail }) => (
+            <div className="resultadoBusca" data-testid="product" key={ title }>
 
-          {results.length > 0
-            ? (results.map(({ price, title, thumbnail }) => (
-              <div className="resultadoBusca" data-testid="product" key={ title }>
+              <ProductCard
+                title={ title }
+                price={ price }
+                thumbnail={ thumbnail }
+                quantity={ quantity }
+              />
 
-                <ProductCard
-                  title={ title }
-                  price={ price }
-                  thumbnail={ thumbnail }
-                  quantity={ quantity }
-                />
-
-              </div>))
-            ) : <h2 className="notProductFound">Nenhum produto foi encontrado</h2>}
-        </div>
+            </div>))
+          ) : <h2 className="notProductFound">Nenhum produto foi encontrado</h2>}
       </>
     );
   }

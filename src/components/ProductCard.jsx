@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ButtonAdd from './ButtonAdd';
+import '../styles/ProductCard.css';
 
 class ProductCard extends React.Component {
   render() {
     const { price, title, thumbnail, id } = this.props;
 
     return (
-      <div>
+      <div className="productCard-div">
 
         <Link
           data-testid="product-detail-link"
@@ -17,7 +18,11 @@ class ProductCard extends React.Component {
           <div>
             <h1>{ title }</h1>
             <img src={ thumbnail } alt={ title } />
-            <span>{ price }</span>
+            <p>
+              R$
+              {' '}
+              { price }
+            </p>
           </div>
 
         </Link>
