@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonAdd from '../components/ButtonAdd';
+import '../styles/ProductDetail.css';
 
 class ProductDetails extends React.Component {
   state = {
@@ -43,14 +44,14 @@ class ProductDetails extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="productDetails">
         <h1 data-testid="product-detail-name">{ title }</h1>
         <img data-testid="product-detail-image" src={ thumbnail } alt={ title } />
         <h3 data-testid="product-detail-price">
           R$
           { price }
         </h3>
-        <div>
+        <div className="button-div">
           <ButtonAdd
             testid="product-detail-add-to-cart"
             title={ title }
