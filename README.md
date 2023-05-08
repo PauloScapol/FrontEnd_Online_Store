@@ -54,7 +54,7 @@ Foi implementado, em equipe, uma versão simplificada de uma loja online, onde s
 
 ## Demonstração da aplicação
 
-:construction: EM CONSTRUÇÃO :construction:
+![caption](https://github.com/PauloScapol/GIFS/blob/main/FrontEndStore.gif)
 
 ---
 
